@@ -256,6 +256,11 @@ html {
 }
 
 /* Movie Cards */
+
+.nowShowing-section {
+  padding: 6rem 0;
+}
+
 .movie-card {
   background: var(--dark-card);
   border-radius: 20px;
@@ -263,6 +268,7 @@ html {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.05);
   height: 100%;
+  position: relative;
 }
 
 .movie-card:hover {
@@ -274,7 +280,7 @@ html {
 .movie-poster {
   position: relative;
   overflow: hidden;
-  height: 480px;
+  height: 100%;
   background: var(--dark-soft);
 }
 
@@ -305,7 +311,19 @@ html {
 }
 
 .movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(18, 18, 18, 0.95) 70%,
+    transparent 100%
+  );
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .movie-title {
@@ -317,11 +335,16 @@ html {
 
 .movie-meta {
   display: flex;
-  gap: 1.5rem;
-  font-size: 0.9rem;
+  gap: 1rem;
+  font-size: 0.8rem;
   color: rgba(255, 248, 240, 0.5);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
   flex-wrap: wrap;
+  transition: margin 0.4s ease;
+}
+
+.movie-card:hover .movie-meta {
+  margin-bottom: 1.2rem;
 }
 
 .movie-meta span {
@@ -338,7 +361,24 @@ html {
   color: rgba(255, 248, 240, 0.6);
   font-size: 0.95rem;
   line-height: 1.7;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
+  display: none;
+}
+
+.movie-card:hover .movie-description {
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn-book {
@@ -350,13 +390,20 @@ html {
   border-radius: 12px;
   transition: all 0.3s ease;
   color: white;
+  display: none;
+}
+
+.movie-card:hover .btn-book {
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 .btn-book:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
 }
-
 /* Coming Soon Cards */
 .coming-soon-card .movie-poster {
   height: 400px;
