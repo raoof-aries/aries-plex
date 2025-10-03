@@ -567,3 +567,18 @@ footer p {
     font-size: 2rem;
   }
 }
+
+/* Coming SOon section */
+
+.comingSoon-section {
+  padding: 6rem 0;
+  background-color: #1a1a1a !important;
+}
+
+.movie-poster {
+  min-height: 30rem;
+}
+
+.movie-poster > img {
+  height: 100%;
+}
