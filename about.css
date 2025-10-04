@@ -360,6 +360,17 @@ body {
   font-size: 0.9rem;
 }
 
+.about-image > img {
+  height: 26rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-content > p {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+
 /* New Era Section */
 .new-era-section {
   padding: 6rem 0;
@@ -367,24 +378,7 @@ body {
   position: relative;
 }
 
-.new-era-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(255, 107, 53, 0.2),
-    transparent
-  );
-}
-
 .content-box {
-  max-width: 1000px;
   margin: 0 auto;
 }
 
